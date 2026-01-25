@@ -3,131 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rooftop Sunsets - Pre-Purim</title>
+    <title>Rooftop Sunsets - Exclusive</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Sunset Palette */
-            --primary-bg: linear-gradient(180deg, #4b1d58 0%, #c53e6b 60%, #ff9e2c 100%);
-            --glass-bg: rgba(255, 255, 255, 0.95);
-            --text-dark: #1a1a1a;
-            --accent-color: #c53e6b;
-            --input-bg: #f4f4f4;
+            /* Luxury Dark Palette */
+            --bg-gradient: linear-gradient(135deg, #000000 0%, #1a0b2e 50%, #2e1035 100%);
+            --glass-bg: rgba(20, 20, 20, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-orange: #ff9e2c;
+            --accent-purple: #b24bf3;
+            --text-main: #ffffff;
+            --text-secondary: #aaaaaa;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Montserrat', sans-serif;
-            background: var(--primary-bg);
+            background: var(--bg-gradient);
             min-height: 100vh;
             display: flex;
-            justify_content: center;
-            align-items: center;
+            justify_content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
             padding: 20px;
-            color: var(--text-dark);
+            color: var(--text-main);
         }
 
         .container {
             background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             width: 100%;
-            max-width: 480px;
-            border-radius: 24px;
+            max-width: 500px;
+            border-radius: 20px;
             padding: 40px 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8);
             text-align: center;
             position: relative;
+            margin: 0 auto; /* Ensure centering on desktop */
         }
 
-        .sunset-circle {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(to bottom, #ff9e2c, #ff5e62);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            box-shadow: 0 0 25px rgba(255, 158, 44, 0.7);
+        /* Animated Glow behind the card */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ff9e2c, #b24bf3, #000);
+            z-index: -1;
+            border-radius: 22px;
+            filter: blur(20px);
+            opacity: 0.4;
         }
 
         h1 {
             font-weight: 800;
             text-transform: uppercase;
-            font-size: 2rem;
-            line-height: 1.1;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
             margin-bottom: 5px;
-            color: #4b1d58;
+            background: linear-gradient(to right, #fff, #ff9e2c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
             font-size: 0.9rem;
-            color: #c53e6b;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 30px;
+            color: var(--accent-purple);
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            margin-bottom: 30px;
         }
 
+        /* --- Process Steps --- */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            position: relative;
+            padding: 0 10px;
+        }
+        /* Line connecting steps */
+        .steps-container::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: rgba(255,255,255,0.1);
+            z-index: 0;
+        }
+        
+        .step {
+            z-index: 1;
+            background: #000;
+            padding: 5px 10px;
+            border-radius: 12px;
+            border: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 30%;
+        }
+        .step-icon {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, var(--accent-purple), var(--accent-orange));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 5px;
+            box-shadow: 0 0 10px rgba(178, 75, 243, 0.5);
+        }
+        .step-text {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* --- Details --- */
         .details-box {
-            background: #fff;
-            border: 1px solid #eee;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255,255,255,0.05);
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 30px;
             text-align: left;
         }
-
         .detail-item {
             display: flex;
             align-items: center;
             margin-bottom: 12px;
             font-size: 0.95rem;
-            color: #333;
+            color: #ddd;
         }
-        .detail-item span { margin-left: 10px; font-weight: 600; }
+        .detail-item span { margin-left: 12px; font-weight: 500; }
 
-        .form-group { margin-bottom: 15px; text-align: left; }
-        label { display: block; font-size: 0.8rem; margin-bottom: 6px; font-weight: 700; color: #666; text-transform: uppercase; }
+        /* --- Form --- */
+        .form-group { margin-bottom: 20px; text-align: left; }
+        
+        label { 
+            display: block; 
+            font-size: 0.75rem; 
+            margin-bottom: 8px; 
+            font-weight: 600; 
+            color: var(--accent-orange); 
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
         
         input {
             width: 100%;
-            padding: 14px;
-            border: 2px solid #eee;
-            background: var(--input-bg);
-            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #333;
+            background: rgba(0,0,0,0.4);
+            border-radius: 8px;
             font-family: inherit;
             font-size: 1rem;
+            color: #fff;
+            transition: 0.3s;
         }
+        input::placeholder { color: #555; }
+        
         input:focus {
-            border-color: var(--accent-color);
+            border-color: var(--accent-purple);
             outline: none;
-            background: #fff;
+            background: rgba(0,0,0,0.6);
+            box-shadow: 0 0 15px rgba(178, 75, 243, 0.2);
         }
 
         .submit-btn {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(90deg, #c53e6b, #ff9e2c);
+            padding: 18px;
+            background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 1.1rem;
-            font-weight: 700;
+            font-weight: 800;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 15px;
+            letter-spacing: 2px;
+            margin-top: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: all 0.3s;
         }
-        
+        .submit-btn:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 15px 30px rgba(178, 75, 243, 0.4);
+        }
+
+        .footer-note {
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 25px;
+            line-height: 1.6;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+        }
+
+        /* Success & Loader */
         #success-message {
             display: none;
             flex-direction: column;
             align-items: center;
             padding: 40px 0;
         }
-        .checkmark { font-size: 4rem; color: #4CAF50; margin-bottom: 20px; }
+        .checkmark { font-size: 4rem; color: #4CAF50; margin-bottom: 20px; text-shadow: 0 0 20px rgba(76,175,80,0.5); }
         
         .loader {
-            border: 3px solid rgba(255,255,255,0.3);
+            border: 3px solid rgba(255,255,255,0.1);
             border-radius: 50%;
-            border-top: 3px solid white;
+            border-top: 3px solid #fff;
             width: 20px;
             height: 20px;
             animation: spin 1s linear infinite;
@@ -140,59 +235,76 @@
 <body>
 
     <div class="container">
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-icon">1</div>
+                <div class="step-text">Request</div>
+            </div>
+            <div class="step">
+                <div class="step-icon">2</div>
+                <div class="step-text">Approve</div>
+            </div>
+            <div class="step">
+                <div class="step-icon">3</div>
+                <div class="step-text">Payment</div>
+            </div>
+        </div>
+
         <div id="form-section">
-            <div class="sunset-circle"></div>
             <h1>Rooftop Sunsets</h1>
             <div class="subtitle">Pre-Purim Edition</div>
 
             <div class="details-box">
                 <div class="detail-item">📅 <span>Friday, Feb 28th | 13:00 - 19:00</span></div>
-                <div class="detail-item">🌇 <span>Best Rooftop in Town (Secret Location)</span></div>
-                <div class="detail-item">🥂 <span>Live DJ & Free Flow Drinks</span></div>
+                <div class="detail-item">📍 <span>Secret Rooftop TLV (Revealed on payment)</span></div>
+                <div class="detail-item">🍸 <span>Live DJ & Free Flow Drinks</span></div>
             </div>
 
             <form id="rsvpForm">
                 <div class="form-group">
                     <label>Full Name</label>
-                    <input type="text" name="name" required placeholder="Your name">
+                    <input type="text" name="name" required placeholder="Name Surname">
                 </div>
                 
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" name="email" required placeholder="you@example.com">
+                    <label>Email Address</label>
+                    <input type="text" name="email" required placeholder="Your email">
                 </div>
 
                 <div class="form-group">
-                    <label>Phone (For Payment Link)</label>
-                    <input type="tel" name="phone" required placeholder="050-xxxxxxx">
+                    <label>Phone (For Bit Link)</label>
+                    <input type="tel" name="phone" required placeholder="050...">
                 </div>
 
                 <div class="form-group">
-                    <label>Social Link (IG/FB)</label>
-                    <input type="url" name="social" required placeholder="https://instagram.com/...">
+                    <label>Instagram Username</label>
+                    <input type="text" name="social" required placeholder="@username">
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span id="btn-text">Join the List</span>
+                    <span id="btn-text">Request Entry</span>
                     <div class="loader" id="loader"></div>
                 </button>
             </form>
 
-            <p style="font-size: 0.75rem; color: #888; margin-top: 25px; line-height: 1.5; border-top: 1px solid #eee; padding-top: 15px;">
-                * Approval Required. <br>
-                Once approved, you'll receive a payment link via WhatsApp.
+            <p class="footer-note">
+                * This is a request only. <br>
+                Your spot is secured only after approval and payment via Bit.
             </p>
         </div>
 
         <div id="success-message">
             <div class="checkmark">✓</div>
-            <h2 style="color: #4b1d58;">You're on the list!</h2>
-            <p style="margin-top: 15px; color: #666;">We'll be in touch shortly.</p>
+            <h2 style="color: #fff;">Request Sent</h2>
+            <p style="margin-top: 15px; color: #aaa;">
+                We've received your details.<br>
+                Approvals & payment links will be sent via WhatsApp.
+            </p>
         </div>
     </div>
 
     <script>
-        // הקישור שלך כבר בפנים:
+        // הקישור שלך כבר מעודכן בפנים:
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwxQlJ59NHD9ek47SpLmREJjlH-pNOIeXBQUQ7kusUKDWh_OT6ogseGHnQqRhaQ05k2/exec';
 
         const form = document.getElementById('rsvpForm');
@@ -220,7 +332,7 @@
             })
             .catch(error => {
                 console.error('Error!', error.message);
-                alert('Error submitting. Please try again.');
+                alert('Connection error. Please try again.');
                 btn.disabled = false;
                 btnText.style.display = 'block';
                 loader.style.display = 'none';
