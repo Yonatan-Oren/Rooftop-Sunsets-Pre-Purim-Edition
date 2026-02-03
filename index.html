@@ -120,8 +120,9 @@
             width: 100%; padding: 18px;
             background: linear-gradient(90deg, var(--accent-purple), var(--accent-orange));
             color: white; border: none; border-radius: 8px;
-            font-size: 1.1rem; font-weight: 800; cursor: pointer;
+            font-size: 1.2rem; font-weight: 800; cursor: pointer;
             transition: all 0.3s; margin-top: 10px;
+            font-family: 'Assistant', sans-serif;
         }
         .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(178, 75, 243, 0.3); }
 
@@ -146,13 +147,14 @@
 
             <div class="details-box">
                 <div class="detail-item">🗓️ <span><strong>מתי?</strong> שישי, 27.02 (סופ"ש לפני פורים)</span></div>
-                <div class="detail-item">⏰ <span><strong>שעות:</strong> 13:00-18:00 (שקיעה מהסרטים)</span></div>
-                <div class="detail-item">📍 <span><strong>מיקום?</strong> זורבבל 5, תל אביב (צמוד למלון רויאל ביץ')</span></div>
-                <div class="detail-item">🎧 <span><strong>Lineup:</strong> dj_eli_avrahami | אלכוהול חופשי</span></div>
+                <div class="detail-item">⏰ <span><strong>שעת התחלה:</strong> 13:00 (שקיעה מהסרטים)</span></div>
+                <div class="detail-item">📍 <span><strong>מיקום:</strong> ייחשף לאחר התשלום</span></div>
+                <div class="detail-item">🎧 <span><strong>DJ:</strong> dj_eli_avrahami</span></div>
+                <div class="detail-item">🍸 <span><strong>בתוכנית:</strong> אלכוהול חופשי ואנשים טובים</span></div>
             </div>
 
             <div class="price-badge">
-                🎟️ כרטיס סבב א': 80 ₪ בלבד
+                🎟️ כרטיסים: סבב א' (מוקדמות)
             </div>
 
             <form id="rsvpForm">
@@ -161,7 +163,7 @@
                     <input type="text" name="name" required placeholder="שם פרטי ומשפחה">
                 </div>
                 <div class="form-group">
-                    <label>טלפון (עבור לינק לתשלום ב-Bit)</label>
+                    <label>טלפון (עבור לינק לתשלום ב-PayBox)</label>
                     <input type="tel" name="phone" required placeholder="05X-XXXXXXX">
                 </div>
                 <div class="form-group">
@@ -170,7 +172,7 @@
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span id="btn-text">שלחו לי אישור הגעה ולינק</span>
+                    <span id="btn-text">בקש אישור הגעה</span>
                     <div class="loader" id="loader"></div>
                 </button>
             </form>
@@ -184,10 +186,10 @@
 
         <div id="success-message">
             <div class="checkmark">✓</div>
-            <h2 style="color: #fff;">הבקשה התקבלה!</h2>
+            <h2 style="color: #fff;">הבקשה נשלחה!</h2>
             <p style="margin-top: 15px; color: #aaa; line-height: 1.6;">
-                איזה כיף, אנחנו כבר מחכים לחגוג איתכם.<br>
-                אישור ולינק לתשלום יישלחו אליכם בקרוב בוואטסאפ.
+                איזה כיף, קיבלנו את הפרטים.<br>
+                אישור הגעה ולינק ל-PayBox יישלחו אליכם בקרוב בוואטסאפ (למאושרים בלבד).
             </p>
         </div>
     </div>
